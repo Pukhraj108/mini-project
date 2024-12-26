@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Random password generator</title>
+</head>
+<style>
+    body {
+        background: linear-gradient(to right, #000000, #f4e2d4); /* Gradient background */
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px 40px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 300px;
+    }
+
+    .container p {
+        font-size: 18px;
+        font-weight: bold;
+        color: #b2a9a7;
+        margin-bottom: 20px;
+    }
+
+    .input input[type="text"],
+    .input input[type="number"],
+    #password {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    .input input:focus,
+    #password:focus {
+        border-color: #8f8380;
+        box-shadow: 0px 0px 5px rgba(73, 65, 63, 0.5);
+    }
+
+    button {
+        background-color: #000000;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #6e6c6a;
+    }
+
+    button:active {
+        background-color: #f8f8f8;
+    }
+</style>
+
+<body>
+    <div class="container">
+   <p> generate password</p> 
+   <div class="input">
+   <input type="text"placeholder="first name" id="fname"><br><br>
+   <input type="text" placeholder="lastname" id="Iname"><br><br>
+   <input type="number" placeholder="phone no" id="number"><br><br>
+</div>
+<input type="text" id="password"><br><br>
+<button onclick="pass()">generate password</button> <br><br>
+</div>
+<script>
+    const password = document.getElementById("password");
+    function pass(){
+        const name = document.getElementById("fname").value;
+        const lastname = document.getElementById("Iname").value;
+        const number = document.getElementById("number").value;
+        const symbol = "@#$/" ;
+        
+        let pass =""
+        pass += name[Math.floor(Math.random()*name.length)];
+        pass += name[Math.floor(Math.random()*name.length)];
+        pass += name[Math.floor(Math.random()*name.length)];
+        pass += name[Math.floor(Math.random()*name.length)];
+
+        pass += symbol[Math.floor(Math.random()*symbol.length)];
+
+        pass += lastname[Math.floor(Math.random()*lastname.length)];
+        pass += lastname[Math.floor(Math.random()*lastname.length)];
+
+        pass += number[Math.floor(Math.random()*number.length)];
+        pass += number[Math.floor(Math.random()*number.length)];
+        pass += number[Math.floor(Math.random()*number.length)];
+        pass += number[Math.floor(Math.random()*number.length)];
+        pass += number[Math.floor(Math.random()*number.length)];
+        
+        password.value = pass;
+
+    }
+    
+</script>
+</body>
+</html>
