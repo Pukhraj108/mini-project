@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ff0000;
+}
+
+.stopwatch {
+    text-align: center;
+    background-color: #eaede9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.stopwatch {
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+.button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button {
+    background-color: #5e5a5a;
+    height: 50px;
+    width: 50px;
+    color: rgb(2, 2, 2);
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    
+}
+
+button:hover {
+    background-color: #c3cad2;
+}
+
+</style>
+<body>
+    <div class="container">
+        <div class="stopwatch" id="stopwatch">00:00:00</div>
+        <div class="button">
+<button class="start"onclick="startTimer()">start</button>
+<button class="stop"onclick="stopTimer()">stop</button>
+<button class="reset"onclick="resetTimer()">reset</button>
+
+
+        </div>
+    </div>
+    <script>
+        let timer,seconds = 0;
+        const stopwatch = document.getElementById('stopwatch');
+        function updateTime(){
+            stopwatch.textContent = new Date(seconds * 1000).toISOString().substr(11,8);
+        }
+        function startTimer(){
+            timer = setInterval(function(){
+                seconds++;
+                updateTime();
+            } ,1000
+        );}
+
+        function stopTimer(){
+         clearInterval(timer);
+        }
+        function resetTimer(){
+            clearInterval(timer);
+            seconds =0;
+            updateTime();
+        }
+    </script>
+</body>
+</html>
